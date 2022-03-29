@@ -53,7 +53,7 @@ public class LinkedFrontBackCappedList<T> implements FrontBackCappedListInterfac
 
 		} else {
 			Node current = head;
-			while (current.next.data!= null){ //find the next null data
+			while (current.next.data != null){ //find the next null data
 				current = current.next;
 			}
 			current.next = current.next.next; //skip the null data
