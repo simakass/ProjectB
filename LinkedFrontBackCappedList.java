@@ -97,8 +97,22 @@ public class LinkedFrontBackCappedList<T> implements FrontBackCappedListInterfac
 	}
 
 	public T removeBack() {
-		// TODO Auto-generated method stub
-		return null;
+		Node current = head;
+		T data = null;
+
+		if (!isEmpty()) {
+			while (current != null && current.next != null) {
+				if (current.next.next == null) {
+					data = current.next.data;
+					current.next = null;
+					tail = current;
+					numberOfEntries--;
+					break;
+				}
+				current = current.next;
+			}
+		}
+		return data;
 	}
 
 	public void clear() {
