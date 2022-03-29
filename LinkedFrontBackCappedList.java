@@ -142,7 +142,7 @@ public class LinkedFrontBackCappedList<T> implements FrontBackCappedListInterfac
 		Node currentNode = head;
 		while (currentNode != null)
 		{
-			if (currentNode.data == anEntry)
+			if (currentNode.data.equals(anEntry))
 			{
 				return true;
 			}
