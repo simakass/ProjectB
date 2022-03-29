@@ -15,6 +15,7 @@ public class LinkedFrontBackCappedList<T> implements FrontBackCappedListInterfac
 		tail = current;
     }
 
+	@Override
 	public String toString(){
 		String nodeString = "[";
         Node current = head;
