@@ -85,14 +85,15 @@ public class LinkedFrontBackCappedList<T> implements FrontBackCappedListInterfac
 		}
 		
 	}
-
+	
 	public T removeFront() {
-		// TODO Auto-generated method stub
 		if(isEmpty()){
 			return null;
 		}else{
-			Node current = head;
-			return (T) current.next;
+			T data = head.data;
+			head = head.next;
+			numberOfEntries--;
+			return data;
 		}
 	}
 
