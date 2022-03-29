@@ -88,7 +88,12 @@ public class LinkedFrontBackCappedList<T> implements FrontBackCappedListInterfac
 
 	public T removeFront() {
 		// TODO Auto-generated method stub
-		return null;
+		if(isEmpty()){
+			return null;
+		}else{
+			Node current = head;
+			return (T) current.next;
+		}
 	}
 
 	public T removeBack() {
@@ -116,7 +121,15 @@ public class LinkedFrontBackCappedList<T> implements FrontBackCappedListInterfac
 
 	public int indexOf(T anEntry) {
 		// TODO Auto-generated method stub
-		return 0;
+		int count = 0;
+		if(!isEmpty()){
+			Node current = head;
+			if(current == anEntry){
+				count++;
+			}
+			current = current.next;
+		}
+		return count;
 	}
 
 	public int lastIndexOf(T anEntry) {
