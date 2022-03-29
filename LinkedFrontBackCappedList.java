@@ -125,9 +125,19 @@ public class LinkedFrontBackCappedList<T> implements FrontBackCappedListInterfac
 	}
 
 	public boolean contains(T anEntry) {
-		// TODO Auto-generated method stub
+	// TODO Auto-generated method stub
+		Node currentNode = head;
+		while (currentNode != null)
+		{
+			if (currentNode.data == anEntry)
+			{
+				return true;
+			}
+			currentNode = currentNode.next;
+		}
 		return false;
 	}
+
 
 	public int size() {
 		return numberOfEntries;
