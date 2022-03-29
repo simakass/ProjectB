@@ -130,7 +130,18 @@ public class LinkedFrontBackCappedList<T> implements FrontBackCappedListInterfac
 	}
 
 	public T getEntry(int givenPosition) {
-		// TODO Auto-generated method stub
+		Node current = head;
+		
+		if(isEmpty() || givenPosition < 0 || givenPosition > capacity) {
+			return null;
+		} else {
+			for(int i = 0; i < capacity; i++) {
+				if (i == givenPosition) {
+					return current.data;
+				}
+				current = current.next;
+			}
+		}
 		return null;
 	}
 
