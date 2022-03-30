@@ -14,7 +14,7 @@ public class LinkedFrontBackCappedList<T> implements FrontBackCappedListInterfac
 			current.next = new Node(null);
 			current = current.next;
 		}
-		
+
 	}
 
 	@Override
@@ -30,11 +30,11 @@ public class LinkedFrontBackCappedList<T> implements FrontBackCappedListInterfac
 			}
 			current = current.next;
 		}
-		
+
 		nodeString += "]";
 		nodeString += "\tsize=" + numberOfEntries + "\tcapacity=" + capacity;
 
-		if (!isEmpty()){
+		if (!isEmpty()) {
 			nodeString += "\thead=" + head.data + " tail=" + tail.data;
 		}
 		return nodeString;
@@ -42,36 +42,34 @@ public class LinkedFrontBackCappedList<T> implements FrontBackCappedListInterfac
 
 	public boolean addFront(T newEntry) {
 
-		if (isFull()){ //no room, return false
+		if (isFull()) { // no room, return false
 			return false;
 
-		}	else if (isEmpty()){ //head.data == null
+		} else if (isEmpty()) { // head.data == null
 			head.data = newEntry;
-			tail = head; //single entry, tail points to head
+			tail = head; // single entry, tail points to head
 			numberOfEntries++;
 			return true;
 
 		} else {
 			Node current = head;
-			while (current.next.data != null){ //find the next null data
+			while (current.next.data != null) { // find the next null data
 				current = current.next;
 			}
-			current.next = current.next.next; //skip the null data
-			Node newFront = new Node (newEntry, head); //new node that points to previous head
-			head = newFront; 
+			current.next = current.next.next; // skip the null data
+			Node newFront = new Node(newEntry, head); // new node that points to previous head
+			head = newFront;
 			numberOfEntries++;
 			return true;
 		}
-		
-		
-		
+
 	}
 
 	public boolean addBack(T newEntry) {
-		if (isFull()){
+		if (isFull()) {
 			return false;
 
-		} else if (isEmpty()){
+		} else if (isEmpty()) {
 			head.data = newEntry;
 			tail = head;
 			numberOfEntries++;
@@ -83,13 +81,13 @@ public class LinkedFrontBackCappedList<T> implements FrontBackCappedListInterfac
 			numberOfEntries++;
 			return true;
 		}
-		
+
 	}
-	
+
 	public T removeFront() {
-		if(isEmpty()){
+		if (isEmpty()) {
 			return null;
-		}else{
+		} else {
 			T data = head.data;
 			head = head.next;
 			numberOfEntries--;
@@ -117,9 +115,9 @@ public class LinkedFrontBackCappedList<T> implements FrontBackCappedListInterfac
 	}
 
 	public void clear() {
-		if (!isEmpty()){
+		if (!isEmpty()) {
 			Node current = head;
-			while (current!=null){
+			while (current != null) {
 				current.data = null;
 				current = current.next;
 			}
@@ -131,11 +129,11 @@ public class LinkedFrontBackCappedList<T> implements FrontBackCappedListInterfac
 
 	public T getEntry(int givenPosition) {
 		Node current = head;
-		
-		if(isEmpty() || givenPosition < 0 || givenPosition > capacity) {
+
+		if (isEmpty() || givenPosition < 0 || givenPosition > capacity) {
 			return null;
 		} else {
-			for(int i = 0; i < capacity; i++) {
+			for (int i = 0; i < capacity; i++) {
 				if (i == givenPosition) {
 					return current.data;
 				}
@@ -146,37 +144,52 @@ public class LinkedFrontBackCappedList<T> implements FrontBackCappedListInterfac
 	}
 
 	public int indexOf(T anEntry) {
-		// TODO Auto-generated method stub
-		int count = 0;
-		if(!isEmpty()){
+		if (!isEmpty()) {
+			int index = 0;
 			Node current = head;
-			if(current == anEntry){
-				count++;
+
+			while (current != null) {
+				if (current.data.equals(anEntry)) {
+					return index;
+				}
+				index++;
+				current = current.next;
 			}
-			current = current.next;
 		}
-		return count;
+		return -1;
 	}
 
 	public int lastIndexOf(T anEntry) {
-		// TODO Auto-generated method stub
-		return 0;
+		Node current = head;
+		LinkedFrontBackCappedList<T> reversedList = new LinkedFrontBackCappedList<T>(numberOfEntries);
+
+		for (int i = 0; i < numberOfEntries; i++) {
+			reversedList.addFront(current.data);
+			current = current.next;
+		}
+
+		Node reversedCurrent = reversedList.head;
+
+		for (int j = (numberOfEntries - 1); j >= 0; j--) {
+			if (reversedCurrent.data.equals(anEntry)) {
+				return j;
+			}
+			reversedCurrent = reversedCurrent.next;
+		}
+		return -1;
 	}
 
 	public boolean contains(T anEntry) {
-	// TODO Auto-generated method stub
+		// TODO Auto-generated method stub
 		Node currentNode = head;
-		while (currentNode != null)
-		{
-			if (currentNode.data.equals(anEntry))
-			{
+		while (currentNode != null) {
+			if (currentNode.data.equals(anEntry)) {
 				return true;
 			}
 			currentNode = currentNode.next;
 		}
 		return false;
 	}
-
 
 	public int size() {
 		return numberOfEntries;
