@@ -202,6 +202,62 @@ public class LinkedFrontBackCappedList<T> implements FrontBackCappedListInterfac
 	public boolean isFull() {
 		return tail.next == null; // if no nodes after tail, list is full
 	}
+	
+	// EXTRA CREDIT
+	@Override
+	public int compareTo(LinkedFrontBackCappedList<T> other)
+	{
+		if (this.isEmpty() && other.isEmpty())
+		{
+			return 0; // same sizes, chains equal
+		}
+		if (this.numberOfEntries == other.numberOfEntries) // same sizes
+		{
+			for (int i=0; i<numberOfEntries; i++)
+			{
+				if (this.getEntry(i).compareTo(other.getEntry(i)) > 0)
+				{
+					return 1;
+				}
+				else if (this.getEntry(i).compareTo(other.getEntry(i)) < 0)
+				{
+					return -1;
+				}
+			}
+			return 0;
+		}
+		else if (this.numberOfEntries > other.numberOfEntries)
+		{
+			for (int i=0; i<other.numberOfEntries; i++)
+			{
+				if (this.getEntry(i).compareTo(other.getEntry(i)) > 0)
+				{
+					return 1;
+				}
+				else if (this.getEntry(i).compareTo(other.getEntry(i)) < 0)
+				{
+					return -1;
+				}
+			}
+			return 1;
+		}
+		else 
+		{
+			for (int i=0; i<numberOfEntries; i++)
+			{
+				if (this.getEntry(i).compareTo(other.getEntry(i)) > 0)
+				{
+					return 1;
+				}
+				else if (this.getEntry(i).compareTo(other.getEntry(i)) < 0)
+				{
+					return -1;
+				}
+			}
+			return -1;
+		}
+	}
+
 
 	public class Node {
 		public T data;
