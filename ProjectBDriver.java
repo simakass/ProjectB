@@ -22,7 +22,7 @@ public class ProjectBDriver {
 		runTestsWithStrings();	
 		
 		// UNCOMMENT IF COMPLETING THE EXTRA CREDIT
-		// runExtraCreditTests();
+		runExtraCreditTests();
 		
 		System.out.println("\n\n-----------------------------TESTING COMPLETE-----------------------------");
 		if(allTestsPassed) {
