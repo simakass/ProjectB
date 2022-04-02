@@ -4,7 +4,9 @@
  * desc: Class implementation of FrontBackCappedListInterface<T> utilizing linked nodes.
  */
 
-public class LinkedFrontBackCappedList<T> implements FrontBackCappedListInterface<T> {
+public class LinkedFrontBackCappedList<T extends Comparable<? super T>> 
+   implements FrontBackCappedListInterface<T>,  
+   Comparable<LinkedFrontBackCappedList<T>> {
 
 	private Node head, tail;
 	private int capacity, numberOfEntries;
