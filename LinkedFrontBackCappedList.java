@@ -1,3 +1,9 @@
+/* group names: <add your name>, <add your name>, Christian Kurt Balais, Kevin Wong
+ * filename: LinkedFrontBackCappedList.java
+ * date: 3/29/2022
+ * desc: Class implementation of FrontBackCappedListInterface<T> utilizing linked nodes.
+ */
+
 public class LinkedFrontBackCappedList<T> implements FrontBackCappedListInterface<T> {
 
 	private Node head, tail;
