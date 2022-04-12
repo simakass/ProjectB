@@ -1,4 +1,4 @@
-/* group names: <add your name>, Sima Kassianik, Christian Kurt Balais, Kevin Wong
+/* group names: Matthew Rutherford, Sima Kassianik, Christian Kurt Balais, Kevin Wong
  * filename: LinkedFrontBackCappedList.java
  * date: 4/02/2022
  * desc: Class implementation of FrontBackCappedListInterface<T> utilizing linked nodes.
